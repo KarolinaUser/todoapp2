@@ -1,1 +1,1 @@
-export * from './lib/adapters/primary/ui/add-task.component-module';
+export * from './lib/adapters/primary/ui/add-form.component-module';
