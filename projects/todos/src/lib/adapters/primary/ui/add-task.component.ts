@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({ 
     selector: 'lib-add-task', 
@@ -6,4 +7,6 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
     encapsulation: ViewEncapsulation.None, 
     changeDetection: ChangeDetectionStrategy.OnPush })
 export class AddTaskComponent {
+  readonly addTaskForm:
+  FormGroup = new FormGroup({messages: new FormControl()});
 }
