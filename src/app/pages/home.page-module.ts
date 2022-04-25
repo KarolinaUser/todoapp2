@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
+import { DataPickerComponentModule } from '../../../projects/todos/src/lib/adapters/primary/ui/data-picker.component-module';
 
 @NgModule({ imports: [CommonModule, 
       RouterModule.forChild([
@@ -9,7 +10,9 @@ import { HomePage } from './home.page';
           path: '',
           component: HomePage,
         }
-      ])],
+      ]),
+  DataPickerComponentModule,
+],
   	declarations: [HomePage],
   	providers: [],
   	exports: [] })
