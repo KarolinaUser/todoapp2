@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageModule } from './pages/home.page-module';
 import { TaskPageModule } from './pages/task.page-module';
-import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [{ 
         path: 'home', 
@@ -12,9 +11,7 @@ const routes: Routes = [{
         path: 'task', 
         loadChildren: () => TaskPageModule
       },
-      { 
-        path: 'todos', component: TodosComponent
-      }
+
 ];
 
 @NgModule({
