@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { AddFormComponentModule, DataPickerComponentModule } from '@todos';
+import { DataPickerComponentModule } from '@todos';
+
 
 
 @NgModule({
   declarations: [ AppComponent,],
   imports: [
-    AddFormComponentModule,
     DataPickerComponentModule,
     BrowserModule,
     AppRoutingModule,

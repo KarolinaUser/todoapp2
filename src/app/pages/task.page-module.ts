@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TaskPage } from './task.page';
-import { AddFormComponentModule } from '@todos';
+import { AddTaskComponentModule } from '../../../projects/todos/src/lib/adapters/primary/ui/add-task.component-module';
 
-@NgModule({ imports: [CommonModule, AddFormComponentModule,
+@NgModule({ imports: [CommonModule,
       RouterModule.forChild([
         {
           path: '',
           component: TaskPage,
         }
-      ])],
+      ]),
+  AddTaskComponentModule
+],
   	declarations: [TaskPage],
   	providers: [],
   	exports: [] })
