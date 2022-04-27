@@ -11,7 +11,7 @@ export class AddTaskComponent {
 
   public items = [] as any[]; 
   public newTask: any;
-
+  
  public addToList() {
  if (this.newTask == []) {
  }
@@ -19,13 +19,22 @@ export class AddTaskComponent {
  this.items.push(this.newTask)
  this.newTask = [];
  }
+
  }
  public deleteTask(index: any) {
  this.items.splice(index, 1);
  }
+
+ public cancel() {
+ if (this.newTask == []) {
 }
+else {
+this.items.splice(this.newTask)
+this.newTask = [];
+}
+ }
 
 
 
 
-
+}
