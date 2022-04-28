@@ -1,5 +1,6 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { ADDS_TASK_DTO, AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.dto-port';
 
 @Component({ 
     selector: 'lib-add-task', 
@@ -35,4 +36,14 @@ this.items.splice(this.newTask)
 this.newTask = [];
 }
  }
+
+  constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort) {
+  }
+
+  onAddButtonClicked(form: FormGroup): void {
+    this._addsTaskDto.add({
+      text: form.get('text')?.value,
+      done: false,
+    });
+  }
 }
