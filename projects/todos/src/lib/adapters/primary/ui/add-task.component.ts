@@ -7,7 +7,9 @@ import { FormGroup, FormControl } from '@angular/forms';
     encapsulation: ViewEncapsulation.None, 
     changeDetection: ChangeDetectionStrategy.OnPush })
 export class AddTaskComponent {
-  readonly text: FormGroup = new FormGroup({text: new FormControl()});
+  readonly text: FormGroup = new FormGroup({
+    text: new FormControl
+    ()});
 
   public items = [] as any[]; 
   public newTask: any;
