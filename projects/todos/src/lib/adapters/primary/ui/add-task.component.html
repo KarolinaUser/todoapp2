@@ -3,23 +3,23 @@
     <input [(ngModel)]="newTask" type="text" class="col-7 form-control" style="width:300px;" formControlName="text" id="task" rows="4"placeholder="write your message here">
     <br>
     <br>
-</form>
 <div>
     <button (click)="addToList()" type="button" class="btn btn-primary me-md-2 ">ADD TASK</button> 
     <button (click)="cancel()" class="btn btn-danger" type="button">CANCEL</button> 
     <div>
 </div>
 </div>
+</form>
    
 
  <div *ngFor="let x of items; let index = index;" class="row" >
          <div class="col-md-7">  
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-         {{x}} 
+    <input class="form-check-input rounded-circle" type="radio" id="flexRadioDefault1">
+    <label class="strikethrough">{{x}}</label>   
  </div>
  <div class="col-md-4">
     <div class="col-9 text-light h3"></div>
-    <input (click)="deleteTask(index)" type="button" value="Delete" class="btn btn-success">
+    <input (click)="deleteTask(index)" type="button" value="Delete" class="btn btn-success" >
  </div>
  <br>
  <br>

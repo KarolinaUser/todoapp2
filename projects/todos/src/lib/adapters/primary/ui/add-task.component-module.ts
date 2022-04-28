@@ -9,3 +9,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   	exports: [AddTaskComponent] })
 export class AddTaskComponentModule {
 }
+
