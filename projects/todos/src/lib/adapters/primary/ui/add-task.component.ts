@@ -35,8 +35,4 @@ this.items.splice(this.newTask)
 this.newTask = [];
 }
  }
-
-
-
-
 }
