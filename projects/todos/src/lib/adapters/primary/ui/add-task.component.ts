@@ -2,6 +2,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject } from '@angular/core';
 import { ADDS_TASK_DTO, AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.dto-port';
 
+
+
 @Component({ 
     selector: 'lib-add-task', 
     templateUrl: './add-task.component.html', 
@@ -14,7 +16,8 @@ export class AddTaskComponent {
 
   public items = [] as any[]; 
   public newTask: any;
-  
+
+
  public addToList() {
  if (this.newTask == []) {
  }
@@ -37,7 +40,7 @@ this.newTask = [];
 }
  }
 
-  constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort) {
+  constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort,) {
   }
 
   onAddButtonClicked(form: FormGroup): void {
@@ -45,5 +48,6 @@ this.newTask = [];
       text: form.get('text')?.value,
       done: false,
     });
+    this.text.reset();
   }
 }

@@ -13,7 +13,7 @@ import { FirebaseTestServiceModule } from '../../../projects/todos/src/lib/adapt
         }
       ]),
   AddTaskComponentModule,
-  FirebaseTestServiceModule
+  FirebaseTestServiceModule,
 ],
   	declarations: [TaskPage],
   	providers: [],
