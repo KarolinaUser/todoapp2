@@ -12,10 +12,10 @@ import { AngularFireModule } from '@angular/fire/compat';
 
 
 
-
 @NgModule({
   declarations: [ AppComponent,],
   imports: [
+  
     AngularFireModule.initializeApp(environment.firebase),
     DataPickerComponentModule,
     BrowserModule,

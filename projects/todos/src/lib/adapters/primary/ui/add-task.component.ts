@@ -7,6 +7,8 @@ import { GETS_ALL_TASK_DTO, GetsAllTaskDtoPort } from '../../../application/port
 import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
 import { formatCurrency } from '@angular/common';
 
+import Swal from 'sweetalert2'
+
 @Component({ 
     selector: 'lib-add-task', 
     templateUrl: './add-task.component.html', 
@@ -36,5 +38,22 @@ export class AddTaskComponent {
 
   onRemoveTaskClicked(id: TaskDTO): void {
     this._removesTaskDto.remove(id.id);
+    Swal.fire({
+      title: 'Delete Task',
+      text: "Are you sure You want to delete this task!?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
 }
 }
