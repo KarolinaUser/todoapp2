@@ -23,8 +23,10 @@ export class AddTaskComponent {
 
 
   get$: Observable<TaskDTO[]> = this._getsAllTaskDto.getAll()
-  .pipe(map((id: TaskDTO[]) =>
-  id.sort(( a, b) => a.sort - b.sort)),
+  .pipe( 
+    map((task: TaskDTO[]) =>
+  task.sort((a, b) => a.created - b.created)),
+
   tap((task: any) => console.log(task))
   );
 
@@ -41,6 +43,7 @@ export class AddTaskComponent {
     this._addsTaskDto.add({
       text: form.get('text')?.value,
       done: false,
+      created: Date.now(),
     });
     this.text.reset();
   }
