@@ -1,13 +1,15 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject } from '@angular/core';
 import { ADDS_TASK_DTO, AddsTaskDtoPort } from '../../../application/ports/secondary/adds-task.dto-port';
-import { Observable } from 'rxjs';
+import { Observable, takeLast } from 'rxjs';
 import { TaskDTO } from '../../../application/ports/secondary/task.dto';
 import { GETS_ALL_TASK_DTO, GetsAllTaskDtoPort } from '../../../application/ports/secondary/gets-all-task.dto-port';
 import { REMOVES_TASK_DTO, RemovesTaskDtoPort } from '../../../application/ports/secondary/removes-task.dto-port';
 import { formatCurrency } from '@angular/common';
 
 import Swal from 'sweetalert2'
+import { SETS_TASK_DTO, SetsTaskDtoPort } from '../../../application/ports/secondary/sets-task.dto-port';
+import { map, tap } from 'rxjs/operators';
 
 @Component({ 
     selector: 'lib-add-task', 
@@ -20,12 +22,19 @@ export class AddTaskComponent {
     ()});
 
 
-  get$: Observable<TaskDTO[]> = this._getsAllTaskDto.getAll();
+  get$: Observable<TaskDTO[]> = this._getsAllTaskDto.getAll()
+  .pipe(map((id: TaskDTO[]) =>
+  id.sort(( a, b) => a.sort - b.sort)),
+  tap((task: any) => console.log(task))
+  );
+
+
 
   constructor(
     @Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort, 
     @Inject(GETS_ALL_TASK_DTO) private _getsAllTaskDto: GetsAllTaskDtoPort,
-    @Inject(REMOVES_TASK_DTO) private _removesTaskDto: RemovesTaskDtoPort) {
+    @Inject(REMOVES_TASK_DTO) private _removesTaskDto: RemovesTaskDtoPort,
+     @Inject(SETS_TASK_DTO) private _setsTaskDto: SetsTaskDtoPort) {
   }
 
   onAddButtonClicked(form: FormGroup): void {
@@ -56,4 +65,13 @@ export class AddTaskComponent {
       }
     })
 }
+
+  onTasksCheckeded(task: TaskDTO): void {
+    if (task.done) {
+    this._setsTaskDto.set({ ...task, done: false}); console.log(task)
+  }
+  else {
+    this._setsTaskDto.set({ ...task, done: true});
+  }
 }
+} 
