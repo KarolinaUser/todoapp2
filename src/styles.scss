@@ -17,3 +17,18 @@ input[type="radio"]:checked+label.strikethrough {
   input[type="radio"]:checked {
     background-color: #18840a;
   }
+
+  .navbar-custom {
+    background-color:#7749F8;
+}
+
+.navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: whitesmoke;
+        }
+
+        .button {
+          position: absolute;
+          top:50%;
+          background-color: green;
+      }
