@@ -1,11 +1,13 @@
 
 <form [formGroup]="text">
-    <input  type="text" class="col-7 form-control" style="width:300px; height:120px;" id="task" rows="4"placeholder="write your message here">
+    <input  type="text" class="col-7 form-control" style="width:420px; height: 120px;" formControlName="text" id="task" rows="4"placeholder="write your message here">
     <br>
     <br>
 <div>
     <button (click)="onAddButtonClicked(text)" type="button" class="btn btn-primary me-md-2 ">ADD TASK</button> 
     <button routerLink="/" class="btn btn-danger" type="button">CANCEL</button> 
+    <br>
+    <br>
     <div>
 </div>
 </div>
